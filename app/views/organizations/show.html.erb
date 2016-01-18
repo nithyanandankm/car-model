@@ -1,15 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @organization.name %>
-</p>
 
-<p>
-  <strong>Public name:</strong>
-  <%= @organization.public_name %>
-</p>
-
+  <h3><%= @organization.public_name %></h3>
 <p>
   <strong>Type:</strong>
   <%= @organization.org_type %>
@@ -20,5 +12,5 @@
   <%= @organization.pricing_policy %>
 </p>
 
-<%= link_to 'Edit', edit_organization_path(@organization) %> |
-<%= link_to 'Back', organizations_path %>
+<%= link_to 'Edit', edit_organization_path(@organization), class: "btn btn-default" %>
+<%= link_to 'Back', organizations_path, class: "btn btn-default" %>

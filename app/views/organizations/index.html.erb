@@ -2,27 +2,31 @@
 
 <h1>Listing Organizations</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
+      <th>#</th>
       <th>Name</th>
       <th>Public name</th>
       <th>Type</th>
       <th>Pricing policy</th>
-      <th colspan="3"></th>
+      <th colspan="3">Actions</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @organizations.each do |organization| %>
+    <% @organizations.each_with_index do |organization, index| %>
       <tr>
+        <th scope="row"><%= index + 1 %></th>
         <td><%= organization.name %></td>
         <td><%= organization.public_name %></td>
         <td><%= organization.org_type %></td>
         <td><%= organization.pricing_policy %></td>
-        <td><%= link_to 'Show', organization %></td>
-        <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
-        <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'View Car Models', models_path(org_id: organization.id), class: 'btn btn-default' %>
+            <%= link_to 'Show', organization, class: 'btn btn-default' %>
+            <%= link_to 'Edit', edit_organization_path(organization), class: 'btn btn-default' %>
+            <%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Organization', new_organization_path %>
+<%= link_to 'New Organization', new_organization_path, class: 'btn btn-default' %>

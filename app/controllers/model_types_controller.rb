@@ -5,7 +5,12 @@ class ModelTypesController < ApplicationController
   # GET /model_types
   # GET /model_types.json
   def index
-    @model_types = ModelType.all
+    if params[:org_id].present?
+      @model = Model.find_by_id(params[:model_id])
+      @model_types = @model && @model.model_types
+    else
+      @model_types = ModelType.all
+    end
   end
 
   # GET /model_types/1

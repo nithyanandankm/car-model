@@ -1,4 +1,4 @@
-<%= form_for(@model_type) do |f| %>
+<%= form_for(@model_type, html: { class: 'small' }) do |f| %>
   <% if @model_type.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@model_type.errors.count, "error") %> prohibited this model_type from being saved:</h2>
@@ -11,27 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :model_id %><br>
-    <%= f.number_field :model_id %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :model_type_slug %><br>
-    <%= f.text_field :model_type_slug %>
-  </div>
-  <div class="field">
-    <%= f.label :model_type_code %><br>
-    <%= f.text_field :model_type_code %>
-  </div>
-  <div class="field">
-    <%= f.label :base_price %><br>
-    <%= f.text_field :base_price %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="form-group">
+      <%= f.label :model_id%>
+      <%= f.number_field :model_id, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :name%>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :model_type_slug%>
+      <%= f.text_field :model_type_slug, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :model_type_code%>
+      <%= f.text_field :model_type_code, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :base_price%>
+      <%= f.text_field :base_price, class: 'form-control' %>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <%= link_to 'Cancel', model_types_path, class: "btn btn-default" %>
 <% end %>

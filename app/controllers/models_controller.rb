@@ -5,7 +5,12 @@ class ModelsController < ApplicationController
   # GET /models
   # GET /models.json
   def index
-    @models = Model.all
+    if params[:org_id].present?
+      @org = Organization.find_by_id(params[:org_id])
+      @models = @org && @org.models
+    else
+      @models = Model.all
+    end
   end
 
   # GET /models/1

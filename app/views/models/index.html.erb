@@ -1,26 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Models</h1>
+<h1>Models <%= @org.present? ? " for #{@org.public_name}" : '' %></h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Organization</th>
+      <th>#</th>
       <th>Name</th>
       <th>Model slug</th>
-      <th colspan="3"></th>
+      <th colspan="3">Actions</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @models.each do |model| %>
+    <% @models.each_with_index do |model, index| %>
       <tr>
-        <td><%= model.organization_id %></td>
+        <th scope="row"><%= index + 1 %></th>
         <td><%= model.name %></td>
         <td><%= model.model_slug %></td>
-        <td><%= link_to 'Show', model %></td>
-        <td><%= link_to 'Edit', edit_model_path(model) %></td>
-        <td><%= link_to 'Destroy', model, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'View Model Types', model_types_path(model_id: model.id), class: 'btn btn-default' %>
+            <%= link_to 'Show', model, class: 'btn btn-default' %>
+            <%= link_to 'Edit', edit_model_path(model), class: 'btn btn-default' %>
+            <%= link_to 'Destroy', model, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Model', new_model_path %>
+<%= link_to 'New Model', new_model_path, class: 'btn btn-default' %>

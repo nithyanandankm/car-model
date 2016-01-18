@@ -1,19 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Organization:</strong>
-  <%= @model.organization_id %>
-</p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @model.name %>
-</p>
-
+<h3><%= @model.name %></h3>
 <p>
   <strong>Model slug:</strong>
   <%= @model.model_slug %>
 </p>
 
-<%= link_to 'Edit', edit_model_path(@model) %> |
-<%= link_to 'Back', models_path %>
+<%= link_to 'Edit', edit_model_path(@model), class: "btn btn-default" %>
+<%= link_to 'Back', models_path, class: "btn btn-default" %>

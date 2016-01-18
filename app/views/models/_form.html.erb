@@ -1,4 +1,4 @@
-<%= form_for(@model) do |f| %>
+<%= form_for(@model, html: { class: 'small' }) do |f| %>
   <% if @model.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@model.errors.count, "error") %> prohibited this model from being saved:</h2>
@@ -11,19 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :organization_id %><br>
-    <%= f.number_field :organization_id %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :model_slug %><br>
-    <%= f.text_field :model_slug %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="form-group">
+      <%= f.label :organization_id %>
+      <%= f.number_field :organization_id, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :model_slug %>
+      <%= f.text_field :model_slug, class: 'form-control' %>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <%= link_to 'Cancel', models_path, class: "btn btn-default" %>
 <% end %>

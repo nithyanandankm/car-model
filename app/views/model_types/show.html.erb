@@ -1,14 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Model:</strong>
-  <%= @model_type.model_id %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @model_type.name %>
-</p>
+<h3><%= @model_type.name %></h3>
 
 <p>
   <strong>Model type slug:</strong>
@@ -25,5 +17,5 @@
   <%= @model_type.base_price %>
 </p>
 
-<%= link_to 'Edit', edit_model_type_path(@model_type) %> |
-<%= link_to 'Back', model_types_path %>
+<%= link_to 'Edit', edit_model_type_path(@model_type), class: "btn btn-default" %>
+<%= link_to 'Back', model_types_path, class: "btn btn-default" %>
