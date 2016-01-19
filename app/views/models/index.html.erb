@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Models <%= @org.present? ? " for #{@org.public_name}" : '' %></h1>
+<h1>Models <%= @org.present? ? " for #{@org.public_name}" : '' %>
+  <%= link_to 'Add Model', new_model_path, class: 'btn btn-default pull-right' %>
+</h1>
 
 <table class="table table-striped">
   <thead>
@@ -26,7 +28,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Model', new_model_path, class: 'btn btn-default' %>

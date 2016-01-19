@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Organizations</h1>
+<h1>Listing Organizations
+  <%= link_to 'Add Organization', new_organization_path, class: 'btn btn-default pull-right' %>
+</h1>
 
 <table class="table table-striped">
   <thead>
@@ -31,7 +33,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Organization', new_organization_path, class: 'btn btn-default' %>
