@@ -5,7 +5,6 @@ class CreateModelTypes < ActiveRecord::Migration
       t.string :name
       t.string :model_type_slug
       t.string :model_type_code
-      t.string :string
       t.integer :base_price
 
       t.timestamps null: false

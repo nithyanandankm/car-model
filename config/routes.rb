@@ -9,6 +9,15 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'organizations#index'
 
+  # This is required for managing different version of the api, for more details watch http://railscasts.com/episodes/352-securing-an-api
+  namespace :api, defaults: { format: 'json' } do
+    scope module: :v1 do
+      resources :models, only: [] do
+        resources :model_types, only: [:index]
+      end
+    end
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
