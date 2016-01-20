@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: 'json' } do
     scope module: :v1 do
       resources :models, only: [] do
+        post 'model_types_price/:model_type_id' => 'models#model_types_price'
         resources :model_types, only: [:index]
       end
     end

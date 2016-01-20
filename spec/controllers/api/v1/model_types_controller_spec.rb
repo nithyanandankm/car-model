@@ -17,11 +17,11 @@ describe Api::V1::ModelTypesController, type: :controller do
         @json_response = JSON.parse(response.body)
       end
 
-      it 'returns response code 404 in response body' do
+      it 'returns response code 401 in response body' do
         expect(response.code).to eq '401'
       end
 
-      it 'returns status code 404 in response body' do
+      it 'returns status code 401 in response body' do
         expect(@json_response['code']).to eq 401
       end
 
@@ -31,7 +31,7 @@ describe Api::V1::ModelTypesController, type: :controller do
     end
 
 
-    describe 'When model is not found' do
+    describe 'When access token is valid' do
       context 'when there are no model_types for the given model slug' do
         before :each do
           @model_type.destroy
@@ -54,7 +54,7 @@ describe Api::V1::ModelTypesController, type: :controller do
           @json_response = JSON.parse(response.body)
         end
 
-        it 'returns response code 404 in response body' do
+        it 'returns response code 200 in response body' do
           expect(response.code).to eq '200'
         end
 
