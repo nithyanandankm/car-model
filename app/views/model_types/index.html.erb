@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Model Types <%= @model.present? ? " for #{@model.name}" : '' %>
-  <%= link_to 'Add Model Type', new_model_type_path, class: 'btn btn-default pull-right' %>
+  <%= link_to 'Back', (@model.present? ? models_path(org_id: @model.organization_id) : models_path ), class: 'btn btn-default pull-right' %>
+  <%= link_to 'Add Model Type', new_model_type_path, class: 'btn btn-default pull-right marr-med' %>
 </h1>
 
 <table class="table table-striped">

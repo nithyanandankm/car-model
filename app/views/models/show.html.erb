@@ -8,4 +8,4 @@
 </p>
 
 <%= link_to 'Edit', edit_model_path(@model), class: "btn btn-default" %>
-<%= link_to 'Back', models_path, class: "btn btn-default" %>
+<%= link_to 'Back', models_path(org_id: @model.organization_id), class: "btn btn-default" %>

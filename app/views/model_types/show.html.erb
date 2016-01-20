@@ -18,4 +18,4 @@
 </p>
 
 <%= link_to 'Edit', edit_model_type_path(@model_type), class: "btn btn-default" %>
-<%= link_to 'Back', model_types_path, class: "btn btn-default" %>
+<%= link_to 'Back', model_types_path(model_id: @model_type.model_id), class: "btn btn-default" %>
