@@ -1,0 +1,3 @@
+[submodule "db/sub-module"]
+	path = db/sub-module
+	url = git@nkm:nithyanandankm/sub-module.git
